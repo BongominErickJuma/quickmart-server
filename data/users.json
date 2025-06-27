@@ -1,0 +1,404 @@
+{
+  "users": [
+    {
+      "_id": "5c8a1dfa2f8fb814b56fa181",
+      "username": "admin_alex",
+      "firstName": "Alex",
+      "lastName": "Johnson",
+      "email": "alex.admin@example.com",
+      "phones": [
+        {
+          "number": "+1234567890",
+          "type": "primary"
+        }
+      ],
+      "role": "admin",
+      "photo": "user-1.jpg",
+      "city": "New York",
+      "country": "USA",
+      "isVerified": true,
+      "isActive": true,
+      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
+    },
+    {
+      "_id": "5c8a1e1a2f8fb814b56fa182",
+      "username": "admin_sarah",
+      "firstName": "Sarah",
+      "lastName": "Williams",
+      "email": "sarah.admin@example.com",
+      "phones": [
+        {
+          "number": "+1987654321",
+          "type": "primary"
+        }
+      ],
+      "role": "admin",
+      "photo": "user-2.jpg",
+      "city": "London",
+      "country": "UK",
+      "isVerified": true,
+      "isActive": true,
+      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
+    },
+    {
+      "_id": "5c8a1e3a2f8fb814b56fa183",
+      "username": "admin_mike",
+      "firstName": "Mike",
+      "lastName": "Brown",
+      "email": "mike.admin@example.com",
+      "phones": [
+        {
+          "number": "+1122334455",
+          "type": "primary"
+        }
+      ],
+      "role": "admin",
+      "photo": "user-3.jpg",
+      "city": "Toronto",
+      "country": "Canada",
+      "isVerified": true,
+      "isActive": true,
+      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
+    },
+    {
+      "_id": "5c8a1e5a2f8fb814b56fa184",
+      "username": "emma_user",
+      "firstName": "Emma",
+      "lastName": "Davis",
+      "email": "emma.user@example.com",
+      "phones": [
+        {
+          "number": "+1567890123",
+          "type": "primary"
+        }
+      ],
+      "role": "user",
+      "photo": "user-4.jpg",
+      "city": "Sydney",
+      "country": "Australia",
+      "isVerified": true,
+      "isActive": true,
+      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
+    },
+    {
+      "_id": "5c8a1e7a2f8fb814b56fa185",
+      "username": "david_shopper",
+      "firstName": "David",
+      "lastName": "Miller",
+      "email": "david.shopper@example.com",
+      "phones": [
+        {
+          "number": "+1789456123",
+          "type": "primary"
+        }
+      ],
+      "role": "user",
+      "photo": "user-5.jpg",
+      "city": "Berlin",
+      "country": "Germany",
+      "isVerified": true,
+      "isActive": true,
+      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
+    },
+    {
+      "_id": "5c8a1e9a2f8fb814b56fa186",
+      "username": "lisa_buyer",
+      "firstName": "Lisa",
+      "lastName": "Wilson",
+      "email": "lisa.buyer@example.com",
+      "phones": [
+        {
+          "number": "+1654321890",
+          "type": "primary"
+        }
+      ],
+      "role": "user",
+      "photo": "user-6.jpg",
+      "city": "Paris",
+      "country": "France",
+      "isVerified": true,
+      "isActive": true,
+      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
+    },
+    {
+      "_id": "5c8a1eba2f8fb814b56fa187",
+      "username": "james_vendor",
+      "firstName": "James",
+      "lastName": "Taylor",
+      "email": "james.vendor@example.com",
+      "phones": [
+        {
+          "number": "+1345678901",
+          "type": "primary"
+        }
+      ],
+      "role": "user",
+      "photo": "user-7.jpg",
+      "city": "Tokyo",
+      "country": "Japan",
+      "isVerified": true,
+      "isActive": true,
+      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
+    },
+    {
+      "_id": "5c8a1eda2f8fb814b56fa188",
+      "username": "sophia_customer",
+      "firstName": "Sophia",
+      "lastName": "Anderson",
+      "email": "sophia.customer@example.com",
+      "phones": [
+        {
+          "number": "+1432198765",
+          "type": "primary"
+        }
+      ],
+      "role": "user",
+      "photo": "user-8.jpg",
+      "city": "Seoul",
+      "country": "South Korea",
+      "isVerified": true,
+      "isActive": true,
+      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
+    },
+    {
+      "_id": "5c8a1efa2f8fb814b56fa189",
+      "username": "ryan_shopper",
+      "firstName": "Ryan",
+      "lastName": "Thomas",
+      "email": "ryan.shopper@example.com",
+      "phones": [
+        {
+          "number": "+1543216789",
+          "type": "primary"
+        }
+      ],
+      "role": "user",
+      "photo": "user-9.jpg",
+      "city": "Mumbai",
+      "country": "India",
+      "isVerified": true,
+      "isActive": true,
+      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
+    },
+    {
+      "_id": "5c8a1f1a2f8fb814b56fa18a",
+      "username": "olivia_buyer",
+      "firstName": "Olivia",
+      "lastName": "Jackson",
+      "email": "olivia.buyer@example.com",
+      "phones": [
+        {
+          "number": "+1678901234",
+          "type": "primary"
+        }
+      ],
+      "role": "user",
+      "photo": "user-10.jpg",
+      "city": "Singapore",
+      "country": "Singapore",
+      "isVerified": true,
+      "isActive": true,
+      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
+    },
+    {
+      "_id": "5c8a1f3a2f8fb814b56fa18b",
+      "username": "noah_vendor",
+      "firstName": "Noah",
+      "lastName": "White",
+      "email": "noah.vendor@example.com",
+      "phones": [
+        {
+          "number": "+1765432198",
+          "type": "primary"
+        }
+      ],
+      "role": "user",
+      "photo": "user-11.jpg",
+      "city": "Dubai",
+      "country": "UAE",
+      "isVerified": true,
+      "isActive": true,
+      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
+    },
+    {
+      "_id": "5c8a1f5a2f8fb814b56fa18c",
+      "username": "ava_customer",
+      "firstName": "Ava",
+      "lastName": "Harris",
+      "email": "ava.customer@example.com",
+      "phones": [
+        {
+          "number": "+1876543219",
+          "type": "primary"
+        }
+      ],
+      "role": "user",
+      "photo": "user-12.jpg",
+      "city": "Rome",
+      "country": "Italy",
+      "isVerified": true,
+      "isActive": true,
+      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
+    },
+    {
+      "_id": "5c8a1f7a2f8fb814b56fa18d",
+      "username": "liam_shopper",
+      "firstName": "Liam",
+      "lastName": "Martin",
+      "email": "liam.shopper@example.com",
+      "phones": [
+        {
+          "number": "+1928374650",
+          "type": "primary"
+        }
+      ],
+      "role": "user",
+      "photo": "user-13.jpg",
+      "city": "Madrid",
+      "country": "Spain",
+      "isVerified": true,
+      "isActive": true,
+      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
+    },
+    {
+      "_id": "5c8a1f9a2f8fb814b56fa18e",
+      "username": "mia_buyer",
+      "firstName": "Mia",
+      "lastName": "Thompson",
+      "email": "mia.buyer@example.com",
+      "phones": [
+        {
+          "number": "+1098765432",
+          "type": "primary"
+        }
+      ],
+      "role": "user",
+      "photo": "user-14.jpg",
+      "city": "Moscow",
+      "country": "Russia",
+      "isVerified": true,
+      "isActive": true,
+      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
+    },
+    {
+      "_id": "5c8a1fba2f8fb814b56fa18f",
+      "username": "elijah_vendor",
+      "firstName": "Elijah",
+      "lastName": "Garcia",
+      "email": "elijah.vendor@example.com",
+      "phones": [
+        {
+          "number": "+1239876540",
+          "type": "primary"
+        }
+      ],
+      "role": "user",
+      "photo": "user-15.jpg",
+      "city": "Beijing",
+      "country": "China",
+      "isVerified": true,
+      "isActive": true,
+      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
+    },
+    {
+      "_id": "5c8a1fda2f8fb814b56fa190",
+      "username": "charlotte_customer",
+      "firstName": "Charlotte",
+      "lastName": "Martinez",
+      "email": "charlotte.customer@example.com",
+      "phones": [
+        {
+          "number": "+1345987620",
+          "type": "primary"
+        }
+      ],
+      "role": "user",
+      "photo": "user-16.jpg",
+      "city": "Cairo",
+      "country": "Egypt",
+      "isVerified": true,
+      "isActive": true,
+      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
+    },
+    {
+      "_id": "5c8a1ffa2f8fb814b56fa191",
+      "username": "benjamin_shopper",
+      "firstName": "Benjamin",
+      "lastName": "Robinson",
+      "email": "benjamin.shopper@example.com",
+      "phones": [
+        {
+          "number": "+1456789320",
+          "type": "primary"
+        }
+      ],
+      "role": "user",
+      "photo": "user-17.jpg",
+      "city": "Rio de Janeiro",
+      "country": "Brazil",
+      "isVerified": true,
+      "isActive": true,
+      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
+    },
+    {
+      "_id": "5c8a201a2f8fb814b56fa192",
+      "username": "amelia_buyer",
+      "firstName": "Amelia",
+      "lastName": "Clark",
+      "email": "amelia.buyer@example.com",
+      "phones": [
+        {
+          "number": "+1567890432",
+          "type": "primary"
+        }
+      ],
+      "role": "user",
+      "photo": "user-18.jpg",
+      "city": "Mexico City",
+      "country": "Mexico",
+      "isVerified": true,
+      "isActive": true,
+      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
+    },
+    {
+      "_id": "5c8a203a2f8fb814b56fa193",
+      "username": "lucas_vendor",
+      "firstName": "Lucas",
+      "lastName": "Rodriguez",
+      "email": "lucas.vendor@example.com",
+      "phones": [
+        {
+          "number": "+1678903452",
+          "type": "primary"
+        }
+      ],
+      "role": "user",
+      "photo": "user-19.jpg",
+      "city": "Bangkok",
+      "country": "Thailand",
+      "isVerified": true,
+      "isActive": true,
+      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
+    },
+    {
+      "_id": "5c8a205a2f8fb814b56fa194",
+      "username": "harper_customer",
+      "firstName": "Harper",
+      "lastName": "Lewis",
+      "email": "harper.customer@example.com",
+      "phones": [
+        {
+          "number": "+1789054321",
+          "type": "primary"
+        }
+      ],
+      "role": "user",
+      "photo": "user-20.jpg",
+      "city": "Johannesburg",
+      "country": "South Africa",
+      "isVerified": true,
+      "isActive": true,
+      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
+    }
+  ]
+}
