@@ -1,24 +1,48 @@
 const express = require('express');
 const morgan = require('morgan');
-const bodyParser = require('body-parser');
+const cors = require('cors');
+const path = require('path');
 
-const userRoutes = require('./routes/userRoutes');
-const globalErrorHandler = require('./controllers/errorController');
-const appError = require('./utils/appError');
+const userRoutes = require('./routes/user.routes');
+const productRoutes = require('./routes/products.routes');
+const globalErrorHandler = require('./controllers/error.controller');
+const AppError = require('./utils/appError');
 
 const app = express();
+
+const allowedOrigins = ['http://localhost:5173'];
 
 // middlewares
 
 app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(
+  cors({
+    origin: function (origin, cb) {
+      // allow requests without origin like postman, thunderclieent, curl
+      if (!origin) {
+        return cb(null, true);
+      }
+      // block origins which you dont allow
+      if (!allowedOrigins.includes(origin)) {
+        return cb(next(new AppError('Origin not allowed by CORS', 400)), false);
+      }
+
+      return cb(null, true);
+    },
+    credentials: true,
+  })
+);
+
 app.use(morgan('dev'));
 app.set('query parser', 'extended');
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/v1/qm/users', userRoutes);
+app.use('/api/v1/qm/products', productRoutes);
 
 app.all('/{*any}', (req, res, next) => {
-  next(new appError(`Can not find ${req.originalUrl} from our server!!`, 404));
+  next(new AppError(`Can not find ${req.originalUrl} from our server!!`, 404));
 });
 
 app.use(globalErrorHandler);

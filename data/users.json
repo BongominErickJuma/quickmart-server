@@ -1,404 +1,442 @@
-{
-  "users": [
-    {
-      "_id": "5c8a1dfa2f8fb814b56fa181",
-      "username": "admin_alex",
-      "firstName": "Alex",
-      "lastName": "Johnson",
-      "email": "alex.admin@example.com",
-      "phones": [
-        {
-          "number": "+1234567890",
-          "type": "primary"
-        }
-      ],
-      "role": "admin",
-      "photo": "user-1.jpg",
-      "city": "New York",
-      "country": "USA",
-      "isVerified": true,
-      "isActive": true,
-      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
-    },
-    {
-      "_id": "5c8a1e1a2f8fb814b56fa182",
-      "username": "admin_sarah",
-      "firstName": "Sarah",
-      "lastName": "Williams",
-      "email": "sarah.admin@example.com",
-      "phones": [
-        {
-          "number": "+1987654321",
-          "type": "primary"
-        }
-      ],
-      "role": "admin",
-      "photo": "user-2.jpg",
-      "city": "London",
-      "country": "UK",
-      "isVerified": true,
-      "isActive": true,
-      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
-    },
-    {
-      "_id": "5c8a1e3a2f8fb814b56fa183",
-      "username": "admin_mike",
-      "firstName": "Mike",
-      "lastName": "Brown",
-      "email": "mike.admin@example.com",
-      "phones": [
-        {
-          "number": "+1122334455",
-          "type": "primary"
-        }
-      ],
-      "role": "admin",
-      "photo": "user-3.jpg",
-      "city": "Toronto",
-      "country": "Canada",
-      "isVerified": true,
-      "isActive": true,
-      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
-    },
-    {
-      "_id": "5c8a1e5a2f8fb814b56fa184",
-      "username": "emma_user",
-      "firstName": "Emma",
-      "lastName": "Davis",
-      "email": "emma.user@example.com",
-      "phones": [
-        {
-          "number": "+1567890123",
-          "type": "primary"
-        }
-      ],
-      "role": "user",
-      "photo": "user-4.jpg",
-      "city": "Sydney",
-      "country": "Australia",
-      "isVerified": true,
-      "isActive": true,
-      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
-    },
-    {
-      "_id": "5c8a1e7a2f8fb814b56fa185",
-      "username": "david_shopper",
-      "firstName": "David",
-      "lastName": "Miller",
-      "email": "david.shopper@example.com",
-      "phones": [
-        {
-          "number": "+1789456123",
-          "type": "primary"
-        }
-      ],
-      "role": "user",
-      "photo": "user-5.jpg",
-      "city": "Berlin",
-      "country": "Germany",
-      "isVerified": true,
-      "isActive": true,
-      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
-    },
-    {
-      "_id": "5c8a1e9a2f8fb814b56fa186",
-      "username": "lisa_buyer",
-      "firstName": "Lisa",
-      "lastName": "Wilson",
-      "email": "lisa.buyer@example.com",
-      "phones": [
-        {
-          "number": "+1654321890",
-          "type": "primary"
-        }
-      ],
-      "role": "user",
-      "photo": "user-6.jpg",
-      "city": "Paris",
-      "country": "France",
-      "isVerified": true,
-      "isActive": true,
-      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
-    },
-    {
-      "_id": "5c8a1eba2f8fb814b56fa187",
-      "username": "james_vendor",
-      "firstName": "James",
-      "lastName": "Taylor",
-      "email": "james.vendor@example.com",
-      "phones": [
-        {
-          "number": "+1345678901",
-          "type": "primary"
-        }
-      ],
-      "role": "user",
-      "photo": "user-7.jpg",
-      "city": "Tokyo",
-      "country": "Japan",
-      "isVerified": true,
-      "isActive": true,
-      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
-    },
-    {
-      "_id": "5c8a1eda2f8fb814b56fa188",
-      "username": "sophia_customer",
-      "firstName": "Sophia",
-      "lastName": "Anderson",
-      "email": "sophia.customer@example.com",
-      "phones": [
-        {
-          "number": "+1432198765",
-          "type": "primary"
-        }
-      ],
-      "role": "user",
-      "photo": "user-8.jpg",
-      "city": "Seoul",
-      "country": "South Korea",
-      "isVerified": true,
-      "isActive": true,
-      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
-    },
-    {
-      "_id": "5c8a1efa2f8fb814b56fa189",
-      "username": "ryan_shopper",
-      "firstName": "Ryan",
-      "lastName": "Thomas",
-      "email": "ryan.shopper@example.com",
-      "phones": [
-        {
-          "number": "+1543216789",
-          "type": "primary"
-        }
-      ],
-      "role": "user",
-      "photo": "user-9.jpg",
-      "city": "Mumbai",
-      "country": "India",
-      "isVerified": true,
-      "isActive": true,
-      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
-    },
-    {
-      "_id": "5c8a1f1a2f8fb814b56fa18a",
-      "username": "olivia_buyer",
-      "firstName": "Olivia",
-      "lastName": "Jackson",
-      "email": "olivia.buyer@example.com",
-      "phones": [
-        {
-          "number": "+1678901234",
-          "type": "primary"
-        }
-      ],
-      "role": "user",
-      "photo": "user-10.jpg",
-      "city": "Singapore",
-      "country": "Singapore",
-      "isVerified": true,
-      "isActive": true,
-      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
-    },
-    {
-      "_id": "5c8a1f3a2f8fb814b56fa18b",
-      "username": "noah_vendor",
-      "firstName": "Noah",
-      "lastName": "White",
-      "email": "noah.vendor@example.com",
-      "phones": [
-        {
-          "number": "+1765432198",
-          "type": "primary"
-        }
-      ],
-      "role": "user",
-      "photo": "user-11.jpg",
-      "city": "Dubai",
-      "country": "UAE",
-      "isVerified": true,
-      "isActive": true,
-      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
-    },
-    {
-      "_id": "5c8a1f5a2f8fb814b56fa18c",
-      "username": "ava_customer",
-      "firstName": "Ava",
-      "lastName": "Harris",
-      "email": "ava.customer@example.com",
-      "phones": [
-        {
-          "number": "+1876543219",
-          "type": "primary"
-        }
-      ],
-      "role": "user",
-      "photo": "user-12.jpg",
-      "city": "Rome",
-      "country": "Italy",
-      "isVerified": true,
-      "isActive": true,
-      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
-    },
-    {
-      "_id": "5c8a1f7a2f8fb814b56fa18d",
-      "username": "liam_shopper",
-      "firstName": "Liam",
-      "lastName": "Martin",
-      "email": "liam.shopper@example.com",
-      "phones": [
-        {
-          "number": "+1928374650",
-          "type": "primary"
-        }
-      ],
-      "role": "user",
-      "photo": "user-13.jpg",
-      "city": "Madrid",
-      "country": "Spain",
-      "isVerified": true,
-      "isActive": true,
-      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
-    },
-    {
-      "_id": "5c8a1f9a2f8fb814b56fa18e",
-      "username": "mia_buyer",
-      "firstName": "Mia",
-      "lastName": "Thompson",
-      "email": "mia.buyer@example.com",
-      "phones": [
-        {
-          "number": "+1098765432",
-          "type": "primary"
-        }
-      ],
-      "role": "user",
-      "photo": "user-14.jpg",
-      "city": "Moscow",
-      "country": "Russia",
-      "isVerified": true,
-      "isActive": true,
-      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
-    },
-    {
-      "_id": "5c8a1fba2f8fb814b56fa18f",
-      "username": "elijah_vendor",
-      "firstName": "Elijah",
-      "lastName": "Garcia",
-      "email": "elijah.vendor@example.com",
-      "phones": [
-        {
-          "number": "+1239876540",
-          "type": "primary"
-        }
-      ],
-      "role": "user",
-      "photo": "user-15.jpg",
-      "city": "Beijing",
-      "country": "China",
-      "isVerified": true,
-      "isActive": true,
-      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
-    },
-    {
-      "_id": "5c8a1fda2f8fb814b56fa190",
-      "username": "charlotte_customer",
-      "firstName": "Charlotte",
-      "lastName": "Martinez",
-      "email": "charlotte.customer@example.com",
-      "phones": [
-        {
-          "number": "+1345987620",
-          "type": "primary"
-        }
-      ],
-      "role": "user",
-      "photo": "user-16.jpg",
-      "city": "Cairo",
-      "country": "Egypt",
-      "isVerified": true,
-      "isActive": true,
-      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
-    },
-    {
-      "_id": "5c8a1ffa2f8fb814b56fa191",
-      "username": "benjamin_shopper",
-      "firstName": "Benjamin",
-      "lastName": "Robinson",
-      "email": "benjamin.shopper@example.com",
-      "phones": [
-        {
-          "number": "+1456789320",
-          "type": "primary"
-        }
-      ],
-      "role": "user",
-      "photo": "user-17.jpg",
-      "city": "Rio de Janeiro",
-      "country": "Brazil",
-      "isVerified": true,
-      "isActive": true,
-      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
-    },
-    {
-      "_id": "5c8a201a2f8fb814b56fa192",
-      "username": "amelia_buyer",
-      "firstName": "Amelia",
-      "lastName": "Clark",
-      "email": "amelia.buyer@example.com",
-      "phones": [
-        {
-          "number": "+1567890432",
-          "type": "primary"
-        }
-      ],
-      "role": "user",
-      "photo": "user-18.jpg",
-      "city": "Mexico City",
-      "country": "Mexico",
-      "isVerified": true,
-      "isActive": true,
-      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
-    },
-    {
-      "_id": "5c8a203a2f8fb814b56fa193",
-      "username": "lucas_vendor",
-      "firstName": "Lucas",
-      "lastName": "Rodriguez",
-      "email": "lucas.vendor@example.com",
-      "phones": [
-        {
-          "number": "+1678903452",
-          "type": "primary"
-        }
-      ],
-      "role": "user",
-      "photo": "user-19.jpg",
-      "city": "Bangkok",
-      "country": "Thailand",
-      "isVerified": true,
-      "isActive": true,
-      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
-    },
-    {
-      "_id": "5c8a205a2f8fb814b56fa194",
-      "username": "harper_customer",
-      "firstName": "Harper",
-      "lastName": "Lewis",
-      "email": "harper.customer@example.com",
-      "phones": [
-        {
-          "number": "+1789054321",
-          "type": "primary"
-        }
-      ],
-      "role": "user",
-      "photo": "user-20.jpg",
-      "city": "Johannesburg",
-      "country": "South Africa",
-      "isVerified": true,
-      "isActive": true,
-      "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"
-    }
-  ]
-}
+[
+  {
+    "_id": "5c8a1d5b0190b214360dc057",
+    "username": "jonas",
+    "firstName": "Jonas",
+    "lastName": "Schmedtmann",
+    "email": "admin@natours.io",
+    "role": "admin",
+    "isActive": true,
+    "photo": "user-1.jpg",
+    "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS",
+    "city": "Berlin",
+    "country": "Germany",
+    "isVerified": true,
+    "phones": [
+      {
+        "number": "+4917612345678",
+        "type": "primary"
+      }
+    ],
+    "createdAt": "2023-01-01T00:00:00.000Z",
+    "updatedAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "_id": "5c8a1dfa2f8fb814b56fa181",
+    "username": "loulou",
+    "firstName": "Lourdes",
+    "lastName": "Browning",
+    "email": "loulou@example.com",
+    "role": "user",
+    "isActive": true,
+    "photo": "user-2.jpg",
+    "password": "$2a$12$hP1h2pnNp7wgyZNRwPsOTeZuNzWBv7vHmsR3DT/OaPSUBQT.y0S..",
+    "city": "New York",
+    "country": "United States",
+    "isVerified": true,
+    "phones": [
+      {
+        "number": "+12125551234",
+        "type": "primary"
+      }
+    ],
+    "createdAt": "2023-01-01T00:00:00.000Z",
+    "updatedAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "_id": "5c8a1e1a2f8fb814b56fa182",
+    "username": "sophie",
+    "firstName": "Sophie",
+    "lastName": "Hart",
+    "email": "sophie@example.com",
+    "role": "user",
+    "isActive": true,
+    "photo": "user-3.jpg",
+    "password": "$2a$12$9nFqToiTmjgfFVJiQvjmreLt4k8X4gGYCETGapSZOb2hHa55t0dDq",
+    "city": "London",
+    "country": "United Kingdom",
+    "isVerified": true,
+    "phones": [
+      {
+        "number": "+442071234567",
+        "type": "primary"
+      }
+    ],
+    "createdAt": "2023-01-01T00:00:00.000Z",
+    "updatedAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "_id": "5c8a1ec62f8fb814b56fa183",
+    "username": "ayla",
+    "firstName": "Ayla",
+    "lastName": "Cornell",
+    "email": "ayls@example.com",
+    "role": "user",
+    "isActive": true,
+    "photo": "user-4.jpg",
+    "password": "$2a$12$tm33.M/4pfEbZF64WbFuHuVFv85v4qEhi.ik8njbud7yaoqCZpjiy",
+    "city": "Sydney",
+    "country": "Australia",
+    "isVerified": true,
+    "phones": [
+      {
+        "number": "+61212345678",
+        "type": "primary"
+      }
+    ],
+    "createdAt": "2023-01-01T00:00:00.000Z",
+    "updatedAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "_id": "5c8a1f292f8fb814b56fa184",
+    "username": "leo",
+    "firstName": "Leo",
+    "lastName": "Gillespie",
+    "email": "leo@example.com",
+    "role": "user",
+    "isActive": true,
+    "photo": "user-5.jpg",
+    "password": "$2a$12$OOPr90tBEBF1Iho3ox0Jde0O/WXUR0VLA5xdh6tWcu7qb.qOCvSg2",
+    "city": "Toronto",
+    "country": "Canada",
+    "isVerified": true,
+    "phones": [
+      {
+        "number": "+14165551234",
+        "type": "primary"
+      }
+    ],
+    "createdAt": "2023-01-01T00:00:00.000Z",
+    "updatedAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "_id": "5c8a1f4e2f8fb814b56fa185",
+    "username": "jennifer",
+    "firstName": "Jennifer",
+    "lastName": "Hardy",
+    "email": "jennifer@example.com",
+    "role": "user",
+    "isActive": true,
+    "photo": "user-6.jpg",
+    "password": "$2a$12$XCXvvlhRBJ8CydKH09v1v.jpg0hB9gVVfMVEoz4MsxqL9zb5PrF42",
+    "city": "Los Angeles",
+    "country": "United States",
+    "isVerified": true,
+    "phones": [
+      {
+        "number": "+12135551234",
+        "type": "primary"
+      }
+    ],
+    "createdAt": "2023-01-01T00:00:00.000Z",
+    "updatedAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "_id": "5c8a201e2f8fb814b56fa186",
+    "username": "kate",
+    "firstName": "Kate",
+    "lastName": "Morrison",
+    "email": "kate@example.com",
+    "role": "user",
+    "isActive": true,
+    "photo": "user-7.jpg",
+    "password": "$2a$12$II1F3aBSFDF3Xz7iB4rk/.a2dogwkClMN5gGCWrRlILrG1xtJG7q6",
+    "city": "Chicago",
+    "country": "United States",
+    "isVerified": true,
+    "phones": [
+      {
+        "number": "+13125551234",
+        "type": "primary"
+      }
+    ],
+    "createdAt": "2023-01-01T00:00:00.000Z",
+    "updatedAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "_id": "5c8a20d32f8fb814b56fa187",
+    "username": "eliana",
+    "firstName": "Eliana",
+    "lastName": "Stout",
+    "email": "eliana@example.com",
+    "role": "user",
+    "isActive": true,
+    "photo": "user-8.jpg",
+    "password": "$2a$12$Jb/ILhdDV.ZpnPMu19xfe.NRh5ntE2LzNMNcsty05QWwRbmFFVMKO",
+    "city": "Paris",
+    "country": "France",
+    "isVerified": true,
+    "phones": [
+      {
+        "number": "+33123456789",
+        "type": "primary"
+      }
+    ],
+    "createdAt": "2023-01-01T00:00:00.000Z",
+    "updatedAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "_id": "5c8a211f2f8fb814b56fa188",
+    "username": "cristian",
+    "firstName": "Cristian",
+    "lastName": "Vega",
+    "email": "chris@example.com",
+    "role": "user",
+    "isActive": true,
+    "photo": "user-9.jpg",
+    "password": "$2a$12$r7/jtdWtzNfrfC7zw3uS.eDJ3Bs.8qrO31ZdbMljL.lUY0TAsaAL6",
+    "city": "Madrid",
+    "country": "Spain",
+    "isVerified": true,
+    "phones": [
+      {
+        "number": "+34123456789",
+        "type": "primary"
+      }
+    ],
+    "createdAt": "2023-01-01T00:00:00.000Z",
+    "updatedAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "_id": "5c8a21d02f8fb814b56fa189",
+    "username": "steve",
+    "firstName": "Steve",
+    "lastName": "Scaife",
+    "email": "steve@example.com",
+    "role": "admin",
+    "isActive": true,
+    "photo": "user-10.jpg",
+    "password": "$2a$12$q7v9dm.S4DvqhAeBc4KwduedEDEkDe2GGFGzteW6xnHt120oRpkqm",
+    "city": "San Francisco",
+    "country": "United States",
+    "isVerified": true,
+    "phones": [
+      {
+        "number": "+14155551234",
+        "type": "primary"
+      }
+    ],
+    "createdAt": "2023-01-01T00:00:00.000Z",
+    "updatedAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "_id": "5c8a21f22f8fb814b56fa18a",
+    "username": "aarav",
+    "firstName": "Aarav",
+    "lastName": "Lynn",
+    "email": "aarav@example.com",
+    "role": "admin",
+    "isActive": true,
+    "photo": "user-11.jpg",
+    "password": "$2a$12$lKWhzujFvQwG4m/X3mnTneOB3ib9IYETsOqQ8aN5QEWDjX6X2wJJm",
+    "city": "Mumbai",
+    "country": "India",
+    "isVerified": true,
+    "phones": [
+      {
+        "number": "+911234567890",
+        "type": "primary"
+      }
+    ],
+    "createdAt": "2023-01-01T00:00:00.000Z",
+    "updatedAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "_id": "5c8a22c62f8fb814b56fa18b",
+    "username": "miyah",
+    "firstName": "Miyah",
+    "lastName": "Myles",
+    "email": "miyah@example.com",
+    "role": "admin",
+    "isActive": true,
+    "photo": "user-12.jpg",
+    "password": "$2a$12$.XIvvmznHQSa9UOI639yhe4vzHKCYO1vpTUZc4d45oiT4GOZQe1kS",
+    "city": "Tokyo",
+    "country": "Japan",
+    "isVerified": true,
+    "phones": [
+      {
+        "number": "+81312345678",
+        "type": "primary"
+      }
+    ],
+    "createdAt": "2023-01-01T00:00:00.000Z",
+    "updatedAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "_id": "5c8a23412f8fb814b56fa18c",
+    "username": "ben",
+    "firstName": "Ben",
+    "lastName": "Hadley",
+    "email": "ben@example.com",
+    "role": "user",
+    "isActive": true,
+    "photo": "user-13.jpg",
+    "password": "$2a$12$D3fyuS9ETdBBw5lOwceTMuZcDTyVq28ieeGUAanIuLMcSDz6bpfIe",
+    "city": "Melbourne",
+    "country": "Australia",
+    "isVerified": true,
+    "phones": [
+      {
+        "number": "+61312345678",
+        "type": "primary"
+      }
+    ],
+    "createdAt": "2023-01-01T00:00:00.000Z",
+    "updatedAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "_id": "5c8a23c82f8fb814b56fa18d",
+    "username": "laura",
+    "firstName": "Laura",
+    "lastName": "Wilson",
+    "email": "laura@example.com",
+    "role": "user",
+    "isActive": true,
+    "photo": "user-14.jpg",
+    "password": "$2a$12$VPYaAAOsI44uhq11WbZ5R.cHT4.fGdlI9gKJd95jmYw3.sAsmbvBq",
+    "city": "Vancouver",
+    "country": "Canada",
+    "isVerified": true,
+    "phones": [
+      {
+        "number": "+16045551234",
+        "type": "primary"
+      }
+    ],
+    "createdAt": "2023-01-01T00:00:00.000Z",
+    "updatedAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "_id": "5c8a23de2f8fb814b56fa18e",
+    "username": "max",
+    "firstName": "Max",
+    "lastName": "Smith",
+    "email": "max@example.com",
+    "role": "user",
+    "isActive": true,
+    "photo": "user-15.jpg",
+    "password": "$2a$12$l5qamwqcqC2NlgN6o5A5..9Fxzr6X.bjx/8j3a9jYUHWGOL99oXlm",
+    "city": "Dublin",
+    "country": "Ireland",
+    "isVerified": true,
+    "phones": [
+      {
+        "number": "+35312345678",
+        "type": "primary"
+      }
+    ],
+    "createdAt": "2023-01-01T00:00:00.000Z",
+    "updatedAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "_id": "5c8a24282f8fb814b56fa18f",
+    "username": "isabel",
+    "firstName": "Isabel",
+    "lastName": "Kirkland",
+    "email": "isabel@example.com",
+    "role": "user",
+    "isActive": true,
+    "photo": "user-16.jpg",
+    "password": "$2a$12$IUnwPH0MGFeMuz7g4gtfvOll.9wgLyxG.9C3TKlttfLtCQWEE6GIu",
+    "city": "Auckland",
+    "country": "New Zealand",
+    "isVerified": true,
+    "phones": [
+      {
+        "number": "+6491234567",
+        "type": "primary"
+      }
+    ],
+    "createdAt": "2023-01-01T00:00:00.000Z",
+    "updatedAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "_id": "5c8a24402f8fb814b56fa190",
+    "username": "alex",
+    "firstName": "Alexander",
+    "lastName": "Jones",
+    "email": "alex@example.com",
+    "role": "user",
+    "isActive": true,
+    "photo": "user-17.jpg",
+    "password": "$2a$12$NnclhoYFNcSApoQ3ML8kk.b4B3gbpOmZJLfqska07miAnXukOgK6y",
+    "city": "Boston",
+    "country": "United States",
+    "isVerified": true,
+    "phones": [
+      {
+        "number": "+16175551234",
+        "type": "primary"
+      }
+    ],
+    "createdAt": "2023-01-01T00:00:00.000Z",
+    "updatedAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "_id": "5c8a245f2f8fb814b56fa191",
+    "username": "eduardo",
+    "firstName": "Eduardo",
+    "lastName": "Hernandez",
+    "email": "edu@example.com",
+    "role": "user",
+    "isActive": true,
+    "photo": "user-18.jpg",
+    "password": "$2a$12$uB5H1OxLMOqDYTuTlptAoewlovENJvjrLwzsL1wUZ6OkAIByPPBGq",
+    "city": "Mexico City",
+    "country": "Mexico",
+    "isVerified": true,
+    "phones": [
+      {
+        "number": "+5215512345678",
+        "type": "primary"
+      }
+    ],
+    "createdAt": "2023-01-01T00:00:00.000Z",
+    "updatedAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "_id": "5c8a24822f8fb814b56fa192",
+    "username": "john",
+    "firstName": "John",
+    "lastName": "Riley",
+    "email": "john@example.com",
+    "role": "user",
+    "isActive": true,
+    "photo": "user-19.jpg",
+    "password": "$2a$12$11JElTatQlAFo1Obw/dwd..vuVmQyYS7MT14pkl3lRvVPjGA00G8O",
+    "city": "Seattle",
+    "country": "United States",
+    "isVerified": true,
+    "phones": [
+      {
+        "number": "+12065551234",
+        "type": "primary"
+      }
+    ],
+    "createdAt": "2023-01-01T00:00:00.000Z",
+    "updatedAt": "2023-01-01T00:00:00.000Z"
+  },
+  {
+    "_id": "5c8a24a02f8fb814b56fa193",
+    "username": "lisa",
+    "firstName": "Lisa",
+    "lastName": "Brown",
+    "email": "lisa@example.com",
+    "role": "user",
+    "isActive": true,
+    "photo": "user-20.jpg",
+    "password": "$2a$12$uA9FsDw63v6dkJKGlLQ/8ufYBs8euB7kqIQewyYlZXU5azEKeLEky",
+    "city": "Montreal",
+    "country": "Canada",
+    "isVerified": true,
+    "phones": [
+      {
+        "number": "+15145551234",
+        "type": "primary"
+      }
+    ],
+    "createdAt": "2023-01-01T00:00:00.000Z",
+    "updatedAt": "2023-01-01T00:00:00.000Z"
+  }
+]

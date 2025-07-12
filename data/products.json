@@ -1,0 +1,170 @@
+[
+  {
+    "_id": "60f7a0b07e8f3b1b3c8dfe01",
+    "name": "Compact Air Fryer",
+    "description": "Healthy oil-free cooking with temperature and timer controls.",
+    "price": 69.99,
+    "image": "/img/products/compact_air_fryer.jpg",
+    "category": "Appliances"
+  },
+  {
+    "_id": "60f7a1c57e8f3b1b3c8dfe02",
+    "name": "Wireless Noise-Canceling Headphones",
+    "description": "Premium headphones with active noise cancellation and long battery life.",
+    "price": 129.99,
+    "image": "/img/products/noise_cancel_headphones.jpg",
+    "category": "Electronics"
+  },
+  {
+    "_id": "60f7a2d97e8f3b1b3c8dfe03",
+    "name": "Ergonomic Office Chair",
+    "description": "Adjustable mesh-back chair with lumbar support and swivel base.",
+    "price": 149.5,
+    "image": "/img/products/ergonomic_office_chair.jpg",
+    "category": "Furniture"
+  },
+  {
+    "_id": "60f7a3ef7e8f3b1b3c8dfe04",
+    "name": "Stainless Steel Water Bottle",
+    "description": "Insulated 1 L bottle keeping drinks hot/cold for 12+ hours.",
+    "price": 24.99,
+    "image": "/img/products/water_bottle.jpg",
+    "category": "Home & Kitchen"
+  },
+  {
+    "_id": "60f7a5067e8f3b1b3c8dfe05",
+    "name": "Yoga Mat – Non‑Slip",
+    "description": "Eco-friendly, extra‑thick yoga mat for workouts.",
+    "price": 34.95,
+    "image": "/img/products/yoga_mat.jpg",
+    "category": "Fitness"
+  },
+  {
+    "_id": "60f7a6207e8f3b1b3c8dfe06",
+    "name": "Men’s Slim Fit Denim Jacket",
+    "description": "Rugged denim jacket with quality fabric and stitching.",
+    "price": 64.99,
+    "image": "/img/products/denim_jacket.jpg",
+    "category": "Fashion"
+  },
+  {
+    "_id": "60f7a7457e8f3b1b3c8dfe07",
+    "name": "Smart LED Light Bulbs (4‑Pack)",
+    "description": "Color-changing bulbs with remote control and smart home support.",
+    "price": 32.99,
+    "image": "/img/products/smart_led_bulbs.jpg",
+    "category": "Home Automation"
+  },
+  {
+    "_id": "60f7a8697e8f3b1b3c8dfe08",
+    "name": "Portable Power Bank 20,000 mAh",
+    "description": "Fast‑charging power bank with dual USB outputs and LED display.",
+    "price": 39.99,
+    "image": "/img/products/power_bank.jpg",
+    "category": "Electronics"
+  },
+  {
+    "_id": "60f7a98a7e8f3b1b3c8dfe09",
+    "name": "Kitchen Knife Set – 6 Pieces",
+    "description": "Stainless steel knives with ergonomic handles and wooden block.",
+    "price": 79.0,
+    "image": "/img/products/knife_set.jpg",
+    "category": "Home & Kitchen"
+  },
+  {
+    "_id": "60f7aaac7e8f3b1b3c8dfe0a",
+    "name": "Women’s Ankle Boots",
+    "description": "Chic, comfortable water‑resistant boots for all‑day wear.",
+    "price": 89.99,
+    "image": "/img/products/ankle_boots.jpg",
+    "category": "Fashion"
+  },
+  {
+    "_id": "60f7acce7e8f3b1b3c8dfe0b",
+    "name": "Mechanical Keyboard",
+    "description": "RGB mechanical keyboard with tactile switches and custom lighting.",
+    "price": 89.99,
+    "image": "/img/products/mechanical_keyboard.jpg",
+    "category": "Electronics"
+  },
+  {
+    "_id": "60f7ae007e8f3b1b3c8dfe0c",
+    "name": "Gaming Mouse",
+    "description": "Ergonomic gaming mouse with adjustable DPI and RGB lighting.",
+    "price": 29.99,
+    "image": "/img/products/gaming_mouse.jpg",
+    "category": "Electronics"
+  },
+  {
+    "_id": "60f7af227e8f3b1b3c8dfe0d",
+    "name": "Bluetooth Speaker",
+    "description": "Portable waterproof speaker with deep bass.",
+    "price": 39.99,
+    "image": "/img/products/bluetooth_speaker.jpg",
+    "category": "Electronics"
+  },
+  {
+    "_id": "60f7b0487e8f3b1b3c8dfe0e",
+    "name": "Laptop Backpack",
+    "description": "Waterproof backpack with padded laptop compartment and USB port.",
+    "price": 45.99,
+    "image": "/img/products/laptop_backpack.jpg",
+    "category": "Accessories"
+  },
+  {
+    "_id": "60f7b16a7e8f3b1b3c8dfe0f",
+    "name": "Smartwatch",
+    "description": "Feature-packed smartwatch with HR tracking and notifications.",
+    "price": 129.99,
+    "image": "/img/products/smartwatch.jpg",
+    "category": "Electronics"
+  },
+  {
+    "_id": "60f7b28c7e8f3b1b3c8dfe10",
+    "name": "Gaming Headset",
+    "description": "Surround sound headset with noise‑canceling mic for immersive gaming.",
+    "price": 99.99,
+    "image": "/img/products/gaming_headset.jpg",
+    "category": "Electronics"
+  },
+  {
+    "_id": "60f7b3ae7e8f3b1b3c8dfe11",
+    "name": "Action Camera",
+    "description": "4K action camera with waterproof case and wide‑angle lens.",
+    "price": 199.99,
+    "image": "/img/products/action_camera.jpg",
+    "category": "Electronics"
+  },
+  {
+    "_id": "60f7b4d07e8f3b1b3c8dfe12",
+    "name": "Stainless Steel Cookware Set – 10‑Piece",
+    "description": "Professional-grade pots & pans with tempered glass lids.",
+    "price": 159.0,
+    "image": "/img/products/cookware_set.jpg",
+    "category": "Home & Kitchen"
+  },
+  {
+    "_id": "60f7b5f27e8f3b1b3c8dfe13",
+    "name": "4‑Shelf Metal Storage Rack",
+    "description": "Heavy-duty wire shelving unit ideal for garage or pantry.",
+    "price": 99.99,
+    "image": "/img/products/storage_rack.jpg",
+    "category": "Home & Storage"
+  },
+  {
+    "_id": "60f7b7127e8f3b1b3c8dfe14",
+    "name": "LED Desk Lamp with USB",
+    "description": "Adjustable brightness lamp with USB charging port.",
+    "price": 29.99,
+    "image": "/img/products/desk_lamp.jpg",
+    "category": "Home & Office"
+  },
+  {
+    "_id": "60f7b8347e8f3b1b3c8dfe15",
+    "name": "Ceramic Travel Mug – 450 mL",
+    "description": "Leakproof ceramic mug for hot drinks on the go.",
+    "price": 19.99,
+    "image": "/img/products/travel_mug.jpg",
+    "category": "Home & Kitchen"
+  }
+]
