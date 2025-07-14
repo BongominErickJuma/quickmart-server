@@ -39,7 +39,7 @@ const userSchema = new mongoose.Schema(
           trim: true,
           validate: {
             validator: function (v) {
-              return validator.isMobilePhone(v, 'any', { strictMode: true });
+              return validator.isMobilePhone(v, 'any');
             },
             message: 'Please enter a valid phone number',
           },
@@ -75,11 +75,12 @@ const userSchema = new mongoose.Schema(
     isVerified: {
       type: Boolean,
       default: false,
+      select: false,
     },
     isActive: {
       type: Boolean,
       default: true,
-      select: true,
+      select: false,
     },
     password: {
       type: String,
@@ -168,7 +169,7 @@ userSchema.methods.createPasswordResetToken = function () {
 
   this.passwordResetToken = hashedToken;
 
-  this.passwordResetExpires = Date.now() + 10 * 60 * 1000;
+  this.passwordResetExpires = Date.now() + 24 * 60 * 60 * 1000;
 
   return resetToken;
 };

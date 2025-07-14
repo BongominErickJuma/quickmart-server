@@ -10,6 +10,9 @@ const AppError = require('./utils/appError');
 
 const app = express();
 
+app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, 'views'));
+
 const allowedOrigins = ['http://localhost:5173'];
 
 // middlewares

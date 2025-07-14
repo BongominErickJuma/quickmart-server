@@ -1,0 +1,23 @@
+extends baseEmail
+
+block content
+    p Hi #{firstName},
+    p Welcome to ClassConnect! We're excited to have you on board. To get started, please verify your email address by clicking the button below:
+    table.btn.btn-primary(role='presentation', border='0', cellpadding='0', cellspacing='0')
+        tbody
+            tr
+                td(align='left')
+                    table(role='presentation', border='0', cellpadding='0', cellspacing='0')
+                        tbody
+                            tr
+                                td
+                                    a(href=`${url}`, target='_blank') Verify Email
+    p This link will expire in 24 hours. If you didn't create a ClassConnnect account, please ignore this email.
+    
+    p If you have any questions, feel free to contact our support team.
+    
+    p Best regards,
+    p The ClassConnect Team
+    
+    p.small-text If the button doesn't work, copy and paste this link into your browser:
+    p.small-text #{url}

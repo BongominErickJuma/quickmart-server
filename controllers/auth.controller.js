@@ -6,7 +6,7 @@ const User = require('../models/user.model');
 const appError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
-const sendEmail = require('../utils/email');
+const Email = require('../utils/email');
 
 const signJWT = (id) => {
   return jwt.sign({ id: id }, process.env.JWT_SECRET, {
@@ -17,9 +17,23 @@ const signJWT = (id) => {
 const createSendToken = (user, statusCode, res) => {
   const token = signJWT(user._id);
 
+  res.cookie('qm_v1_cookie', token, {
+    expires: new Date(
+      Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
+    ),
+    httpOnly: true,
+    secure: (process.env.NODE_ENV = 'production'),
+    sameSite: (process.env.NODE_ENV = 'production' ? 'none' : 'lax'),
+  });
+
+  user.password = undefined;
+
   res.status(statusCode).json({
     status: 'success',
     token,
+    data: {
+      user,
+    },
   });
 };
 
@@ -27,6 +41,12 @@ const createSendToken = (user, statusCode, res) => {
 
 exports.signup = catchAsync(async (req, res, next) => {
   const newUser = await User.create(req.body);
+
+  // const url = `${req.protocol}://${req.get('host')}/me`;
+  const url = `${req.protocol}://${req.get('host')}/me`;
+
+  await new Email(newUser, url).sendWelcome();
+
   createSendToken(newUser, 201, res);
 });
 
@@ -120,14 +140,8 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
     'host'
   )}/api/v1/qm/users/reset-password/${resetToken}`;
 
-  const message = `FORGOT PASSWORD\n please send a patch request to ${resetURL}\n If you didn't forget password, you can safely ignore this email`;
-
   try {
-    await sendEmail({
-      email: user.email,
-      subject: 'Your password reset token expires in 10 minutes',
-      message,
-    });
+    await new Email(user, resetURL).sendPasswordReset();
 
     res.status(200).json({
       status: 'success',
