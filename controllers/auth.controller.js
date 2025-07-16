@@ -47,7 +47,7 @@ exports.signup = catchAsync(async (req, res, next) => {
   let url;
 
   if (process.env.NODE_ENV === 'production') {
-    urlToHttpOptions = `https://https://qm-client.netlify.app/profile`;
+    url = `https://https://qm-client.netlify.app/profile`;
   } else {
     url = `http://localhost:5173/profile`;
   }
