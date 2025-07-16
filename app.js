@@ -4,8 +4,11 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 
+const orderController = require('./controllers/order.controller');
+
 const userRoutes = require('./routes/user.routes');
 const productRoutes = require('./routes/products.routes');
+const orderRoutes = require('./routes/order.routes');
 const globalErrorHandler = require('./controllers/error.controller');
 const AppError = require('./utils/appError');
 
@@ -46,9 +49,15 @@ app.use(morgan('dev'));
 app.set('query parser', 'extended');
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/api/v1/qm/users', userRoutes);
+app.post(
+  '/webhook-checkout',
+  express.raw({ type: 'application/json' }),
+  orderController.webhookCheckout
+);
 
+app.use('/api/v1/qm/users', userRoutes);
 app.use('/api/v1/qm/products', productRoutes);
+app.use('/api/v1/qm/orders', orderRoutes);
 
 app.all('/{*any}', (req, res, next) => {
   next(new AppError(`Can not find ${req.originalUrl} from our server!!`, 404));
