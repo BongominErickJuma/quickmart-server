@@ -7,6 +7,7 @@ const appError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 const Email = require('../utils/email');
+const { urlToHttpOptions } = require('url');
 
 const signJWT = (id) => {
   return jwt.sign({ id: id }, process.env.JWT_SECRET, {
@@ -43,7 +44,13 @@ exports.signup = catchAsync(async (req, res, next) => {
   const newUser = await User.create(req.body);
 
   // const url = `${req.protocol}://${req.get('host')}/me`;
-  const url = `${req.protocol}://${req.get('host')}/me`;
+  let url;
+
+  if (process.env.NODE_ENV === 'production') {
+    urlToHttpOptions = `https://eclassconnect.netlify.app/profile`;
+  } else {
+    url = `http://localhost:5173/profile`;
+  }
 
   await new Email(newUser, url).sendWelcome();
 
@@ -67,6 +74,19 @@ exports.login = catchAsync(async (req, res, next) => {
   createSendToken(user, 200, res);
 });
 
+// LOGOUT USER
+
+exports.logout = (req, res) => {
+  res.cookie('qm_v1_cookie', 'logout', {
+    expires: new Date(Date.now() + 10 * 1000),
+    httpOnly: true,
+    secure: (process.env.NODE_ENV = 'production'),
+    sameSite: (process.env.NODE_ENV = 'production' ? 'none' : 'lax'),
+  });
+
+  res.status(200).json({ status: 'success', message: 'logout successfull' });
+};
+
 // PROTECT ROUTES
 
 exports.protect = catchAsync(async (req, res, next) => {
@@ -79,6 +99,8 @@ exports.protect = catchAsync(async (req, res, next) => {
     req.headers.authorization.startsWith('Bearer')
   ) {
     token = req.headers.authorization.split(' ')[1];
+  } else if (req.cookies.qm_v1_cookie) {
+    token = req.cookies.qm_v1_cookie;
   }
 
   if (!token) {
@@ -136,9 +158,13 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
 
   // send reset token to the user email
 
-  const resetURL = `${req.protocol}://${req.get(
-    'host'
-  )}/api/v1/qm/users/reset-password/${resetToken}`;
+  let resetURL;
+
+  if (process.env.NODE_ENV === 'production') {
+    resetURL = `https://eclassconnect.netlify.app/reset-password?token=${resetToken}`;
+  } else {
+    resetURL = `http://localhost:5173/reset-password?token=${resetToken}`;
+  }
 
   try {
     await new Email(user, resetURL).sendPasswordReset();
@@ -192,7 +218,7 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
 exports.updatePassword = catchAsync(async (req, res, next) => {
   // check if user exists
 
-  const user = (await User.findById(req.user.id)).select('+password');
+  const user = await User.findById(req.user.id).select('+password');
 
   // check if user exists and if current password is correct
 

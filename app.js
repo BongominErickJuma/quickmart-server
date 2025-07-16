@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
 const path = require('path');
 
 const userRoutes = require('./routes/user.routes');
@@ -18,6 +19,7 @@ const allowedOrigins = ['http://localhost:5173'];
 // middlewares
 
 app.use(express.json());
+app.use(cookieParser());
 
 app.use(
   cors({
@@ -42,6 +44,7 @@ app.set('query parser', 'extended');
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/v1/qm/users', userRoutes);
+
 app.use('/api/v1/qm/products', productRoutes);
 
 app.all('/{*any}', (req, res, next) => {

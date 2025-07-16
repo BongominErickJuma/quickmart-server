@@ -11,15 +11,19 @@ router.patch('/reset-password/:token', authController.resetPassword);
 
 router.use(authController.protect);
 
-router.get('/me', userController.getMe);
 router.patch(
   '/update-me',
   userController.uploadUserPhoto,
   userController.resizeUserPhoto,
   userController.updateMe
 );
-router.delete('/delete-me', userController.deleteMe);
+router.patch('/update-password', authController.updatePassword);
 
-router.route('/').get(authController.protect, userController.getAllUsers);
+router.delete('/delete-me', userController.deleteMe);
+router.get('/logout', authController.logout);
+router.get('/me', userController.getMe, userController.getUser);
+
+router.route('/').get(userController.getAllUsers);
+router.route('/:id').get(userController.getUser);
 
 module.exports = router;
