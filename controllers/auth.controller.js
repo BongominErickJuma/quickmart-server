@@ -47,7 +47,7 @@ exports.signup = catchAsync(async (req, res, next) => {
   let url;
 
   if (process.env.NODE_ENV === 'production') {
-    urlToHttpOptions = `https://eclassconnect.netlify.app/profile`;
+    urlToHttpOptions = `https://https://qm-client.netlify.app/profile`;
   } else {
     url = `http://localhost:5173/profile`;
   }
@@ -161,7 +161,7 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
   let resetURL;
 
   if (process.env.NODE_ENV === 'production') {
-    resetURL = `https://eclassconnect.netlify.app/reset-password?token=${resetToken}`;
+    resetURL = `https://qm-client.netlify.app/reset-password?token=${resetToken}`;
   } else {
     resetURL = `http://localhost:5173/reset-password?token=${resetToken}`;
   }

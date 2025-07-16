@@ -4,10 +4,19 @@ env.config({ path: './config.env' });
 const mongoose = require('mongoose');
 const app = require('./app');
 
-const DB = process.env.DB;
+let DB = process.env.DB;
+
+if (process.env.NODE_ENV === 'production') {
+  DB = process.env.DATABASE.replace(
+    '<PASSWORD>',
+    process.env.DATABASE_PASSWORD
+  );
+}
 mongoose
   .connect(DB)
-  .then(() => console.log('DB connection was successfull'))
+  .then(() =>
+    console.log(`DB connection was successfull- ${process.env.NODE_ENV}`)
+  )
   .catch((err) => console.log('Error conecting to the database', err));
 
 console.log('Environment: ', process.env.NODE_ENV);
