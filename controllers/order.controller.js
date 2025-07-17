@@ -89,7 +89,12 @@ const createOrderCheckout = async (session) => {
     }
   }
 
+  console.log('Creating order for user:', user);
+  console.log('Order data:', { products, user, totalPrice });
+
   await Order.create({ products, user, totalPrice, paid: true });
+
+  console.log('Order successfully created!');
 };
 
 exports.webhookCheckout = (req, res, next) => {
