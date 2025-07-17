@@ -7,7 +7,6 @@ const appError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 const Email = require('../utils/email');
-const { urlToHttpOptions } = require('url');
 
 const signJWT = (id) => {
   return jwt.sign({ id: id }, process.env.JWT_SECRET, {
@@ -44,13 +43,10 @@ exports.signup = catchAsync(async (req, res, next) => {
   const newUser = await User.create(req.body);
 
   // const url = `${req.protocol}://${req.get('host')}/me`;
-  let url;
 
-  if (process.env.NODE_ENV === 'production') {
-    url = `https://https://qm-client.netlify.app/profile`;
-  } else {
-    url = `http://localhost:5173/profile`;
-  }
+  const url = `https://https://qm-client.netlify.app/profile`;
+
+  //  const  url = `http://localhost:5173/profile`;
 
   await new Email(newUser, url).sendWelcome();
 
@@ -158,13 +154,9 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
 
   // send reset token to the user email
 
-  let resetURL;
+  const resetURL = `https://qm-client.netlify.app/reset-password?token=${resetToken}`;
 
-  if (process.env.NODE_ENV === 'production') {
-    resetURL = `https://qm-client.netlify.app/reset-password?token=${resetToken}`;
-  } else {
-    resetURL = `http://localhost:5173/reset-password?token=${resetToken}`;
-  }
+  // resetURL = `http://localhost:5173/reset-password?token=${resetToken}`;
 
   try {
     await new Email(user, resetURL).sendPasswordReset();

@@ -4,14 +4,13 @@ env.config({ path: './config.env' });
 const mongoose = require('mongoose');
 const app = require('./app');
 
-let DB = process.env.DB;
+// const DB = process.env.DB;
 
-if (process.env.NODE_ENV === 'production') {
-  DB = process.env.DATABASE.replace(
-    '<PASSWORD>',
-    process.env.DATABASE_PASSWORD
-  );
-}
+const DB = process.env.DATABASE.replace(
+  '<PASSWORD>',
+  process.env.DATABASE_PASSWORD
+);
+
 mongoose
   .connect(DB)
   .then(() =>

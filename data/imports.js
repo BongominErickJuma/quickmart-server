@@ -6,14 +6,12 @@ env.config({ path: './config.env' });
 const User = require('../models/user.model');
 const Product = require('../models/product.model');
 
-let DB = process.env.DB;
+// const DB = process.env.DB;
 
-if (process.env.NODE_ENV === 'production') {
-  DB = process.env.DATABASE.replace(
-    '<PASSWORD>',
-    process.env.DATABASE_PASSWORD
-  );
-}
+const DB = process.env.DATABASE.replace(
+  '<PASSWORD>',
+  process.env.DATABASE_PASSWORD
+);
 
 mongoose.connect(DB).then(() => {
   console.log('DB CONNECTION SUCCESSFULL');

@@ -45,14 +45,11 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
     mode: 'payment',
-    success_url:
-      process.env.NODE_ENV === 'production'
-        ? 'https://qm-client.netlify.app'
-        : 'http://localhost:5173',
-    cancel_url:
-      process.env.NODE_ENV === 'production'
-        ? 'https://qm-client.netlify.app'
-        : 'http://localhost:5173',
+    success_url: 'https://qm-client.netlify.app/my-orders',
+    // success_url:'http://localhost:5173/my-orders',
+
+    cancel_url: 'https://qm-client.netlify.app',
+    // cancel_url: 'http://localhost:5173'
     customer_email: req.user.email,
     client_reference_id: req.user.id,
     line_items,
