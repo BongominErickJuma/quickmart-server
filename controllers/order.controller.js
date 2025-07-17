@@ -175,3 +175,17 @@ exports.deleteOrder = catchAsync(async (req, res, next) => {
     data: null,
   });
 });
+
+// get order for only one user
+
+exports.getMyOrders = catchAsync(async (req, res, next) => {
+  const orders = await Order.find({ user: req.user.id });
+
+  res.status(200).json({
+    status: 'success',
+    results: orders.length,
+    data: {
+      orders,
+    },
+  });
+});

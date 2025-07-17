@@ -8,6 +8,8 @@ router.use(authController.protect);
 
 router.post('/checkout-session', orderController.getCheckoutSession);
 
+router.get('/my-orders', orderController.getMyOrders);
+
 router.route('/').get(orderController.getAllOrders);
 
 router
