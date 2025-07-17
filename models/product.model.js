@@ -56,6 +56,7 @@ productSchema.index({ category: 1 });
 
 // Virtual for formatted price (e.g., $69.99)
 productSchema.virtual('formattedPrice').get(function () {
+  if (typeof this.price !== 'number') return '$0.00';
   return `$${this.price.toFixed(2)}`;
 });
 
