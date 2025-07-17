@@ -6,8 +6,7 @@ const User = require('../models/user.model');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
 
-// controllers/order.controller.js
-
+// Create Stripe Checkout Session
 exports.getCheckoutSession = catchAsync(async (req, res, next) => {
   const items = req.body.items;
 
@@ -28,7 +27,7 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
     line_items.push({
       price_data: {
         currency: 'usd',
-        unit_amount: product.price * 100, // Stripe expects amount in cents
+        unit_amount: product.price * 100,
         product_data: {
           name: product.name,
           description: product.description,
@@ -70,33 +69,7 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
   });
 });
 
-const createOrderCheckout = async (session) => {
-  const user = (await User.findOne({ email: session.customer_email })).id;
-  const totalPrice = session.amount_total / 100;
-
-  let products = [];
-
-  if (session.metadata && session.metadata.cart) {
-    try {
-      const cartItems = JSON.parse(session.metadata.cart);
-      products = cartItems.map((item) => ({
-        product: item.product_id || item._id || item.id,
-        quantity: item.quantity || item.count || 1,
-        unitPrice: item.price,
-      }));
-    } catch (err) {
-      console.error('Failed to parse cart metadata:', err);
-    }
-  }
-
-  console.log('Creating order for user:', user);
-  console.log('Order data:', { products, user, totalPrice });
-
-  await Order.create({ products, user, totalPrice, paid: true });
-
-  console.log('Order successfully created!');
-};
-
+// Stripe Webhook Handler
 exports.webhookCheckout = (req, res, next) => {
   const signature = req.headers['stripe-signature'];
 
@@ -111,12 +84,79 @@ exports.webhookCheckout = (req, res, next) => {
     return res.status(400).send(`Webhook error: ${err.message}`);
   }
 
-  if (event.type === 'checkout.session.completed')
+  if (event.type === 'checkout.session.completed') {
     createOrderCheckout(event.data.object);
+  }
 
   res.status(200).json({ received: true });
 };
 
-exports.getOrder = catchAsync(async (req, res, next) => {});
-exports.getAllOrders = catchAsync(async (req, res, next) => {});
-exports.deleteOrder = catchAsync(async (req, res, next) => {});
+// Create Order from Stripe Session
+const createOrderCheckout = async (session) => {
+  const user = (await User.findOne({ email: session.customer_email }))?.id;
+  const totalPrice = session.amount_total / 100;
+
+  let products = [];
+
+  if (session.metadata?.cart) {
+    try {
+      const cartItems = JSON.parse(session.metadata.cart);
+      products = cartItems.map((item) => ({
+        product: item.product_id || item._id || item.id,
+        quantity: item.quantity || item.count || 1,
+        unitPrice: item.price,
+      }));
+    } catch (err) {
+      console.error('Failed to parse cart metadata:', err);
+    }
+  }
+
+  if (user) {
+    await Order.create({ products, user, totalPrice, paid: true });
+  }
+};
+
+// Get a single order
+exports.getOrder = catchAsync(async (req, res, next) => {
+  const order = await Order.findById(req.params.id).populate(
+    'products.product'
+  );
+
+  if (!order) {
+    return next(new AppError('No order found with that ID', 404));
+  }
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      order,
+    },
+  });
+});
+
+// Get all orders
+exports.getAllOrders = catchAsync(async (req, res, next) => {
+  const orders = await Order.find().populate('products.product');
+
+  res.status(200).json({
+    status: 'success',
+    results: orders.length,
+    data: {
+      orders,
+    },
+  });
+});
+
+// Delete an order
+exports.deleteOrder = catchAsync(async (req, res, next) => {
+  const order = await Order.findByIdAndDelete(req.params.id);
+
+  if (!order) {
+    return next(new AppError('No order found with that ID', 404));
+  }
+
+  res.status(204).json({
+    status: 'success',
+    data: null,
+  });
+});
