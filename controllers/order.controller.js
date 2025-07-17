@@ -27,7 +27,7 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
     line_items.push({
       price_data: {
         currency: 'usd',
-        unit_amount: product.price * 100,
+        unit_amount: Math.round(product.price * 100),
         product_data: {
           name: product.name,
           description: product.description,
@@ -57,7 +57,7 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
     client_reference_id: req.user.id,
     line_items,
     metadata: {
-      cart: JSON.stringify(items),
+      cart: JSON.stringify(items), // only contains product_id and quantity
     },
   });
 
@@ -101,17 +101,32 @@ const createOrderCheckout = async (session) => {
   if (session.metadata?.cart) {
     try {
       const cartItems = JSON.parse(session.metadata.cart);
-      products = cartItems.map((item) => ({
-        product: item.product_id || item._id || item.id,
-        quantity: item.quantity || item.count || 1,
-        unitPrice: item.price,
-      }));
+
+      // ✅ Fetch full product info for price
+      products = await Promise.all(
+        cartItems.map(async (item) => {
+          const productDoc = await Product.findById(item.product_id);
+          if (!productDoc) return null;
+
+          return {
+            product: productDoc._id,
+            quantity: item.quantity,
+            unitPrice: productDoc.price,
+          };
+        })
+      );
+
+      // Remove any failed lookups
+      products = products.filter((p) => p !== null);
     } catch (err) {
-      console.error('Failed to parse cart metadata:', err);
+      console.error(
+        'Failed to parse or fetch products from cart metadata:',
+        err
+      );
     }
   }
 
-  if (user) {
+  if (user && products.length > 0) {
     await Order.create({ products, user, totalPrice, paid: true });
   }
 };
