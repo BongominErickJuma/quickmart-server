@@ -46,6 +46,7 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
     payment_method_types: ['card'],
     mode: 'payment',
     success_url: 'https://qm-client.netlify.app/my-orders',
+
     // success_url:'http://localhost:5173/my-orders',
 
     cancel_url: 'https://qm-client.netlify.app',
