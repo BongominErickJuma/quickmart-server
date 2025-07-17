@@ -4,18 +4,26 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 
-const orderController = require('./controllers/order.controller');
-
 const userRoutes = require('./routes/user.routes');
 const productRoutes = require('./routes/products.routes');
 const orderRoutes = require('./routes/order.routes');
 const globalErrorHandler = require('./controllers/error.controller');
 const AppError = require('./utils/appError');
 
+const orderController = require('./controllers/order.controller');
+
 const app = express();
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
+
+// webhook endpoint
+
+app.post(
+  '/webhook-checkout',
+  express.raw({ type: 'application/json' }),
+  orderController.webhookCheckout
+);
 
 const allowedOrigins = [
   'http://localhost:5173',
@@ -48,12 +56,6 @@ app.use(
 app.use(morgan('dev'));
 app.set('query parser', 'extended');
 app.use(express.static(path.join(__dirname, 'public')));
-
-app.post(
-  '/webhook-checkout',
-  express.raw({ type: 'application/json' }),
-  orderController.webhookCheckout
-);
 
 app.use('/api/v1/qm/users', userRoutes);
 app.use('/api/v1/qm/products', productRoutes);
