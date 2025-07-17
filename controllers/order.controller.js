@@ -45,7 +45,7 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
     mode: 'payment',
-    success_url: 'https://qm-client.netlify.app/my-orders',
+    success_url: 'https://qm-client.netlify.app',
 
     // success_url:'http://localhost:5173/my-orders',
 
