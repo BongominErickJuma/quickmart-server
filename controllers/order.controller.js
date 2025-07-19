@@ -1,12 +1,11 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
-
 const Product = require('../models/product.model');
 const Order = require('../models/order.model');
 const User = require('../models/user.model');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
 
-// Create Stripe Checkout Session
+// ⚡ Create Stripe Checkout Session
 exports.getCheckoutSession = catchAsync(async (req, res, next) => {
   const items = req.body.items;
 
@@ -45,17 +44,13 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
     mode: 'payment',
-    success_url: 'https://qm-client.netlify.app',
-
-    // success_url:'http://localhost:5173/my-orders',
-
-    cancel_url: 'https://qm-client.netlify.app',
-    // cancel_url: 'http://localhost:5173'
+    success_url: `${process.env.CLIENT_URL}/my-orders`,
+    cancel_url: `${process.env.CLIENT_URL}`,
     customer_email: req.user.email,
     client_reference_id: req.user.id,
     line_items,
     metadata: {
-      cart: JSON.stringify(items), // only contains product_id and quantity
+      cart: JSON.stringify(items), // Only contains product_id and quantity
     },
   });
 
@@ -67,11 +62,11 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
   });
 });
 
-// Stripe Webhook Handler
-exports.webhookCheckout = (req, res, next) => {
+// ⚡ Stripe Webhook Handler
+exports.webhookCheckout = catchAsync(async (req, res, next) => {
   const signature = req.headers['stripe-signature'];
-
   let event;
+
   try {
     event = stripe.webhooks.constructEvent(
       req.body,
@@ -79,57 +74,67 @@ exports.webhookCheckout = (req, res, next) => {
       process.env.STRIPE_WEBHOOK_SECRET
     );
   } catch (err) {
-    return res.status(400).send(`Webhook error: ${err.message}`);
+    console.error('⚠️ Stripe Webhook Error:', err.message);
+    return res.status(400).send(`Webhook Error: ${err.message}`);
   }
 
   if (event.type === 'checkout.session.completed') {
-    createOrderCheckout(event.data.object);
+    console.log('✅ Stripe checkout.session.completed received');
+    await createOrderCheckout(event.data.object);
   }
 
   res.status(200).json({ received: true });
-};
+});
 
-// Create Order from Stripe Session
+// ✅ Create Order After Checkout
 const createOrderCheckout = async (session) => {
   const user = (await User.findOne({ email: session.customer_email }))?.id;
   const totalPrice = session.amount_total / 100;
 
+  if (!user) return;
+
   let products = [];
 
-  if (session.metadata?.cart) {
-    try {
-      const cartItems = JSON.parse(session.metadata.cart);
+  try {
+    const cartItems = JSON.parse(session.metadata.cart || '[]');
 
-      // ✅ Fetch full product info for price
-      products = await Promise.all(
-        cartItems.map(async (item) => {
-          const productDoc = await Product.findById(item.product_id);
-          if (!productDoc) return null;
+    products = await Promise.all(
+      cartItems.map(async (item) => {
+        const productDoc = await Product.findById(item.product_id);
+        if (!productDoc) return null;
 
-          return {
-            product: productDoc._id,
-            quantity: item.quantity,
-            unitPrice: productDoc.price,
-          };
-        })
-      );
+        return {
+          product: productDoc._id,
+          quantity: item.quantity,
+          unitPrice: productDoc.price,
+        };
+      })
+    );
 
-      // Remove any failed lookups
-      products = products.filter((p) => p !== null);
-    } catch (err) {
-      console.error(
-        'Failed to parse or fetch products from cart metadata:',
-        err
-      );
-    }
+    products = products.filter(Boolean);
+  } catch (err) {
+    console.error('❌ Failed to parse cart metadata:', err);
+    return;
   }
 
-  if (user && products.length > 0) {
+  if (products.length === 0) return;
+
+  // ❗ Idempotency check: avoid duplicate orders
+  const existingOrder = await Order.findOne({
+    user,
+    totalPrice,
+    paid: true,
+  });
+
+  if (!existingOrder) {
     await Order.create({ products, user, totalPrice, paid: true });
+    console.log('✅ Order created from Stripe webhook.');
+  } else {
+    console.log('⚠️ Duplicate order skipped (already exists).');
   }
 };
 
-// Get a single order
+// 📦 Get single order by ID
 exports.getOrder = catchAsync(async (req, res, next) => {
   const order = await Order.findById(req.params.id).populate(
     'products.product'
@@ -141,26 +146,22 @@ exports.getOrder = catchAsync(async (req, res, next) => {
 
   res.status(200).json({
     status: 'success',
-    data: {
-      order,
-    },
+    data: { order },
   });
 });
 
-// Get all orders
+// 📦 Get all orders (admin)
 exports.getAllOrders = catchAsync(async (req, res, next) => {
   const orders = await Order.find().populate('products.product');
 
   res.status(200).json({
     status: 'success',
     results: orders.length,
-    data: {
-      orders,
-    },
+    data: { orders },
   });
 });
 
-// Delete an order
+// 🗑️ Delete order
 exports.deleteOrder = catchAsync(async (req, res, next) => {
   const order = await Order.findByIdAndDelete(req.params.id);
 
@@ -168,22 +169,18 @@ exports.deleteOrder = catchAsync(async (req, res, next) => {
     return next(new AppError('No order found with that ID', 404));
   }
 
-  res.status(204).json({
-    status: 'success',
-    data: null,
-  });
+  res.status(204).json({ status: 'success', data: null });
 });
 
-// get order for only one user
-
+// 📦 Get orders for logged-in user
 exports.getMyOrders = catchAsync(async (req, res, next) => {
-  const orders = await Order.find({ user: req.user.id });
+  const orders = await Order.find({ user: req.user.id }).populate(
+    'products.product'
+  );
 
   res.status(200).json({
     status: 'success',
     results: orders.length,
-    data: {
-      orders,
-    },
+    data: { orders },
   });
 });
